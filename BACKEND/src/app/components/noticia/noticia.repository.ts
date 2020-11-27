@@ -18,4 +18,8 @@ async function deleteNoticia(_id: string) {
     return noticiaSchema.findByIdAndDelete(_id);
 }
 
-export default { addNoticia, getNoticias, getNoticiaById, deleteNoticia };
+async function putNoticia(_id: string, noticia: Noticia) {
+    return noticiaSchema.findByIdAndUpdate(_id, noticia);
+}
+
+export default { addNoticia, getNoticias, getNoticiaById, deleteNoticia, putNoticia };

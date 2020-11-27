@@ -35,8 +35,8 @@ router.get('/all', (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         response_module_1.default.error(req, res, "Error desconocido");
     }
 }));
-router.get('/id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const _id = req.body;
+router.get('/id/:_id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const _id = req.params._id;
     try {
         const result = yield noticia_controller_1.default.getNoticiaById(_id);
         response_module_1.default.success(req, res, result);
@@ -45,10 +45,21 @@ router.get('/id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         response_module_1.default.error(req, res, "Error Desconocido");
     }
 }));
-router.delete('/delete:_id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const _id = req.body;
+router.delete('/delete/:_id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const _id = req.params._id;
     try {
         const result = yield noticia_controller_1.default.deleteNoticia(_id);
+        response_module_1.default.success(req, res, result);
+    }
+    catch (error) {
+        response_module_1.default.error(req, res, "Error Desconocido");
+    }
+}));
+router.put('/put/:_id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const _id = req.params._id;
+    const body = req.body;
+    try {
+        const result = yield noticia_controller_1.default.putNoticia(_id, body);
         response_module_1.default.success(req, res, result);
     }
     catch (error) {

@@ -12,6 +12,7 @@ import { NoticiaScreenComponent } from './noticia-screen/noticia-screen.componen
 import { ContactoScreenComponent } from './contacto-screen/contacto-screen.component';
 import { ScreensComponent } from './screens.component';
 import { AlterNoticiaScreenComponent } from './alter-noticia-screen/alter-noticia-screen.component';
+import { PeriodistaScreenComponent } from './periodista-screen/periodista-screen.component';
 
 const routes: Routes = [
   {
@@ -34,7 +35,8 @@ const routes: Routes = [
       {path: 'newNoticia', component: NewNoticiaScreenComponent},
       {path: 'contacto', component: ContactoScreenComponent},
       {path: 'administrator', component: AdministratorScreenComponent},
-      {path: 'alterNoticia', component: AlterNoticiaScreenComponent}
+      {path: 'alterNoticia/:id', component: AlterNoticiaScreenComponent},
+      {path: 'periodista', component: PeriodistaScreenComponent}
     ]
   }
 ];

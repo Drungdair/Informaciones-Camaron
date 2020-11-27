@@ -43,7 +43,7 @@ export class NewNoticiaScreenComponent implements OnInit {
       await this.newNoticiaProvider.addNoticia(noticia).toPromise();
       alert("La noticia ha sido creada con exito");
     } catch (error) {
-      
+      alert("Error al crear la noticia");
     }
   }
   

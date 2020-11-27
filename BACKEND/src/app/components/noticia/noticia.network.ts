@@ -26,8 +26,8 @@ router.get('/all', async(req: Request, res: Response) => {
     }
 });
 
-router.get('/id', async(req: Request, res: Response) => {
-    const _id: string = req.body;
+router.get('/id/:_id', async(req: Request, res: Response) => {
+    const _id: string = req.params._id;
     try {
         const result = await noticiaController.getNoticiaById(_id);
         responseModule.success(req, res, result);
@@ -36,8 +36,8 @@ router.get('/id', async(req: Request, res: Response) => {
     }
 });
 
-router.delete('/delete:_id', async(req: Request, res: Response) => {
-    const _id: string = req.body;
+router.delete('/delete/:_id', async(req: Request, res: Response) => {
+    const _id: string = req.params._id;
     try {
         const result = await noticiaController.deleteNoticia(_id);
         responseModule.success(req, res, result);
@@ -46,5 +46,15 @@ router.delete('/delete:_id', async(req: Request, res: Response) => {
     }
 })
 
+router.put('/put/:_id', async(req: Request, res: Response) => {
+    const _id: string = req.params._id;
+    const body: Noticia = req.body;
+    try {
+        const result = await noticiaController.putNoticia(_id, body);
+        responseModule.success(req, res, result);
+    } catch (error) {
+        responseModule.error(req, res, "Error Desconocido");
+    }
+})
 
 export default router;

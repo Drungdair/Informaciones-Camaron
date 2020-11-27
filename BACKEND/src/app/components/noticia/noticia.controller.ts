@@ -25,4 +25,8 @@ async function deleteNoticia(_id: string) {
     return NoticiaRepository.deleteNoticia(_id);
 }
 
-export default { addNoticia, getNoticias, getNoticiaById, deleteNoticia };
+async function putNoticia(_id: string, noticia: Noticia) {
+    return NoticiaRepository.putNoticia(_id, noticia);
+}
+
+export default { addNoticia, getNoticias, getNoticiaById, deleteNoticia, putNoticia };

@@ -31,4 +31,9 @@ function deleteNoticia(_id) {
         return noticia_schema_1.default.findByIdAndDelete(_id);
     });
 }
-exports.default = { addNoticia, getNoticias, getNoticiaById, deleteNoticia };
+function putNoticia(_id, noticia) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return noticia_schema_1.default.findByIdAndUpdate(_id, noticia);
+    });
+}
+exports.default = { addNoticia, getNoticias, getNoticiaById, deleteNoticia, putNoticia };

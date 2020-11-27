@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Noticia } from '../../models/noticia.model';
 import { HttpService } from '../../services/http/http.service';
-import { map } from 'rxjs/operators'
 
 
 @Injectable({
@@ -20,14 +19,15 @@ export class NoticiaProviderService {
     return this.httpService.post<Noticia>('/noticia/add', noticia);
   }
 
-  public getNoticiaById(id: string): Observable<Noticia> {
-    return this.getNoticias().pipe(map((noticias: Noticia[]) => {
-      return noticias.find((noticia: Noticia) => noticia._id == id)
-    }));
+  public getNoticiaById(_id: string): Observable<Noticia> {
+    return this.httpService.get<Noticia>('/noticia/id/' + _id);
   }
 
-  public deleteNoticia(_id: string): Observable<Noticia> {
-    return this.httpService.delete<Noticia>('/noticia/delete:' + _id);
+  public deleteNoticiaById(_id: string): Observable<Noticia> {
+    return this.httpService.delete<Noticia>('/noticia/delete/' + _id);
   }
 
+  public putNoticiaById(_id: string, noticia: Partial<Noticia>): Observable<Noticia> {
+    return this.httpService.put<Noticia>('/noticia/put/' + _id, noticia);
+  }
 }
