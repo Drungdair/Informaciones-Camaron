@@ -57,4 +57,23 @@ router.put('/put/:_id', async(req: Request, res: Response) => {
     }
 })
 
+router.get('/visitUpdate/:_id', async(req: Request, res: Response) => {
+    const _id: string = req.params._id;
+    try {
+        const result = await noticiaController.getNoticiaUpdateVisita(_id);
+        responseModule.success(req, res, result);
+    } catch (error) {
+        responseModule.error(req, res, "Error Desconocido");
+    }
+});
+
+router.get('/topVisitas', async(req: Request, res: Response) => {
+    try {
+        const result = await noticiaController.topNoticiaVisita();
+        responseModule.success(req, res, result);
+    } catch (error) {
+        responseModule.error(req, res, "Error Desconocido");
+    }
+});
+
 export default router;
