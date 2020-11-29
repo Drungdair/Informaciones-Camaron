@@ -39,4 +39,9 @@ function deleteUser(_id) {
         return user_repository_1.default.deleteUser(_id);
     });
 }
-exports.default = { addUser, getUsers, getUserById, getUserByEmail, deleteUser };
+function putUser(_id, user) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return user_repository_1.default.putUser(_id, user);
+    });
+}
+exports.default = { addUser, getUsers, getUserById, getUserByEmail, deleteUser, putUser };

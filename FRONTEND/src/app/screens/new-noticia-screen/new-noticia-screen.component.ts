@@ -1,9 +1,7 @@
-import { not } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Noticia } from 'src/app/core/models/noticia.model';
 import { NoticiaProviderService } from 'src/app/core/providers/noticia/noticia-provider.service';
-import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-new-noticia-screen',

@@ -102,9 +102,20 @@ router.get('/id/:_id', (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
 }));
 router.delete('/delete/:_id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const _id = req.body;
+    const _id = req.params._id;
     try {
         const result = yield user_controller_1.default.deleteUser(_id);
+        response_module_1.default.success(req, res, result);
+    }
+    catch (error) {
+        response_module_1.default.error(req, res, "Error Desconocido");
+    }
+}));
+router.put('/put/:_id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const _id = req.params._id;
+    const body = req.body;
+    try {
+        const result = yield user_controller_1.default.putUser(_id, body);
         response_module_1.default.success(req, res, result);
     }
     catch (error) {

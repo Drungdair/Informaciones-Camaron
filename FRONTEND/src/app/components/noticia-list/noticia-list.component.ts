@@ -15,8 +15,6 @@ export class NoticiaListComponent implements OnInit {
   public categoria: string;
   @Input()
   public _id: string;
-  @Input()
-  public priv: number;
 
   constructor(public authService: AuthService) { }
 

@@ -23,8 +23,12 @@ async function getUserById(_id: string) {
     return UserRepository.getUserById(_id);
 }
 
-async function deleteUser(_id: string) {
+async function deleteUser(_id: string): Promise<User> {
     return UserRepository.deleteUser(_id);
 }
 
-export default { addUser, getUsers, getUserById, getUserByEmail, deleteUser };
+async function putUser(_id: string, user: User): Promise<User> {
+    return UserRepository.putUser(_id, user);
+}
+
+export default { addUser, getUsers, getUserById, getUserByEmail, deleteUser, putUser };

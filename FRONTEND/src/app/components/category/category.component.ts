@@ -17,14 +17,14 @@ export class CategoryComponent implements OnInit {
   public noticias$: Observable<Noticia[]>;
   
   constructor(private noticiaProvider: NoticiaProviderService) {
-    this.noticias$ = this.getNoticias();
+    this.noticias$ = this.getNoticiasPublicas();
   }
 
   ngOnInit(): void {
     
   }
 
-  getNoticias(): Observable<Noticia[]> {
-    return this.noticiaProvider.getNoticias();
+  getNoticiasPublicas(): Observable<Noticia[]> {
+    return this.noticiaProvider.getNoticiasPublicas();
   }
 }

@@ -80,5 +80,30 @@ async function putCalificacionNoticia(_id: string, caliNoticia: Noticia): Promis
     return noticia;
 }
 
+async function getNoticiasPublicas(): Promise<Noticia[]> {
+    let noticias: Noticia[] = await NoticiaRepository.getNoticias();
+    let noticiasPublicas: Noticia[] = noticias.map((noticia) => {
+        if(noticia.privado == 1 && noticia.estado === "Publicado") {
+            return noticia;
+        }
+    });
+    noticiasPublicas = noticiasPublicas.filter(Boolean);
+    noticiasPublicas.reverse();
 
-export default { addNoticia, getNoticias, getNoticiaById, deleteNoticia, putNoticia, getNoticiaUpdateVisita, topNoticiaVisita, putCalificacionNoticia };
+    return noticiasPublicas;
+}
+
+async function getNoticiasPrivadas(): Promise<Noticia[]> {
+    let noticias: Noticia[] = await NoticiaRepository.getNoticias();
+    let noticiasPrivadas: Noticia[] = noticias.map((noticia) => {
+        if(noticia.privado == 2 && noticia.estado === "Publicado") {
+            return noticia;
+        }
+    });
+    noticiasPrivadas = noticiasPrivadas.filter(Boolean);
+    noticiasPrivadas.reverse();
+
+    return noticiasPrivadas;
+}
+
+export default { addNoticia, getNoticias, getNoticiaById, deleteNoticia, putNoticia, getNoticiaUpdateVisita, topNoticiaVisita, putCalificacionNoticia, getNoticiasPublicas, getNoticiasPrivadas };

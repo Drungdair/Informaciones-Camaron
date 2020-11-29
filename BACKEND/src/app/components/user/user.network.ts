@@ -61,8 +61,6 @@ router.post('/signin', async (req: Request, res: Response) => {
 
 });
 
-
-
 async function verifyToken(req: Request, res: Response, next: NextFunction) {
 	try {
 		if (!req.headers.authorization) {
@@ -104,10 +102,8 @@ router.get('/id/:_id', async(req: Request, res: Response) => {
     }
 });
 
-
-
 router.delete('/delete/:_id', async(req: Request, res: Response) => {
-    const _id: string = req.body;
+    const _id: string = req.params._id;
     try {
         const result = await userController.deleteUser(_id);
         responseModule.success(req, res, result);
@@ -116,5 +112,15 @@ router.delete('/delete/:_id', async(req: Request, res: Response) => {
     }
 })
 
+router.put('/put/:_id', async(req: Request, res: Response) => {
+    const _id: string = req.params._id;
+    const body: User = req.body;
+    try {
+        const result = await userController.putUser(_id, body);
+        responseModule.success(req, res, result);
+    } catch (error) {
+        responseModule.error(req, res, "Error Desconocido");
+    }
+})
 
 export default router;

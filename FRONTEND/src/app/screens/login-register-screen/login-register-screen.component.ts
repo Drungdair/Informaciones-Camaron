@@ -163,7 +163,6 @@ export class LoginRegisterScreenComponent implements OnInit {
     this.usua.contraseña= this.password.value;
 
     if (this.checkoutFormLogin.valid) { // si es formulario valido
-      console.log('usuario:', this.usua.correo, 'con:', this.usua.contraseña);
 
       let usuario: Partial<User> = {
         correo: this.usua.correo ,
@@ -182,8 +181,6 @@ export class LoginRegisterScreenComponent implements OnInit {
             alert('Correo o Contraseña Incorrectos!');
           }
         );
-        //await this.servicioLoginRegister.addUsuario(usuario).toPromise();
-        //alert("Se logeo exitosamente!");
       }
       catch(error){
         console.log('fallo :c', error);

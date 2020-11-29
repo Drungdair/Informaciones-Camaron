@@ -19,8 +19,12 @@ async function getUserById(_id: string) {
     return userSchema.findById(_id);
 }
 
-async function deleteUser(_id: string) {
+async function deleteUser(_id: string): Promise<User> {
     return userSchema.findByIdAndDelete(_id);
 }
 
-export default { addUser, getUsers, getUserById, getUserByEmail, deleteUser };
+async function putUser(_id: string, user: User): Promise<User> {
+    return userSchema.findByIdAndUpdate(_id, user);
+}
+
+export default { addUser, getUsers, getUserById, getUserByEmail, deleteUser, putUser };
