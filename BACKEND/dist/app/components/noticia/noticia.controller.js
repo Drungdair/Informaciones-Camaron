@@ -83,4 +83,13 @@ function topNoticiaVisita() {
         return topVisitasNoticia;
     });
 }
-exports.default = { addNoticia, getNoticias, getNoticiaById, deleteNoticia, putNoticia, getNoticiaUpdateVisita, topNoticiaVisita };
+function putCalificacionNoticia(_id, caliNoticia) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let noticia = yield noticia_repository_1.default.getNoticiaById(_id);
+        noticia.calificacion = (Number(noticia.calificacion) + Number(caliNoticia.calificacion)) / 2;
+        noticia.calificacion = Number.parseFloat(noticia.calificacion.toFixed(2));
+        yield noticia_repository_1.default.putNoticia(_id, noticia);
+        return noticia;
+    });
+}
+exports.default = { addNoticia, getNoticias, getNoticiaById, deleteNoticia, putNoticia, getNoticiaUpdateVisita, topNoticiaVisita, putCalificacionNoticia };

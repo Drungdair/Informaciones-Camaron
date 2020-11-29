@@ -72,4 +72,13 @@ async function topNoticiaVisita(): Promise<Noticia[]> {
     return topVisitasNoticia;
 }
 
-export default { addNoticia, getNoticias, getNoticiaById, deleteNoticia, putNoticia, getNoticiaUpdateVisita, topNoticiaVisita };
+async function putCalificacionNoticia(_id: string, caliNoticia: Noticia): Promise<Noticia> {
+    let noticia: Noticia = await NoticiaRepository.getNoticiaById(_id);
+    noticia.calificacion = (Number(noticia.calificacion) + Number(caliNoticia.calificacion))/2;
+    noticia.calificacion = Number.parseFloat(noticia.calificacion.toFixed(2));
+    await NoticiaRepository.putNoticia(_id,noticia);
+    return noticia;
+}
+
+
+export default { addNoticia, getNoticias, getNoticiaById, deleteNoticia, putNoticia, getNoticiaUpdateVisita, topNoticiaVisita, putCalificacionNoticia };

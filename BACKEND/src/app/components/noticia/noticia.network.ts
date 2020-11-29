@@ -76,4 +76,15 @@ router.get('/topVisitas', async(req: Request, res: Response) => {
     }
 });
 
+router.put('/calification/:_id', async(req: Request, res: Response) => {
+    const _id: string = req.params._id;
+    const body: Noticia = req.body;
+    try {
+        const result = await noticiaController.putCalificacionNoticia(_id,body);
+        responseModule.success(req, res, result);
+    } catch (error) {
+        responseModule.error(req, res, "Error Desconocido");
+    }
+});
+
 export default router;

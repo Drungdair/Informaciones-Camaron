@@ -5,17 +5,21 @@
 <div class="container-fluid">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a id="migasPan" href="/inicio">Inicio</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Inicío Sesion & Registro</li>
+            <li class="breadcrumb-item"><a id="migasPan" href="/inicio">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Inicío Sesion & Registro</li>
         </ol>
     </nav>
-    <div class="row m-5">
+    <div class="row m-5 mx-auto">
         <div class="col-md-6">
             <div class="d-flex justify-content-center h-100">
                 <div class="card" id="login">
                     <div class="card-header">
                         <h3>Inicio de Sesion</h3>
+                        <div class="d-flex justify-content-end social_icon">
 
+                            <span (click)="authenticate()"><i class="fab fa-google-plus-square" ></i></span>
+
+                        </div>
                     </div>
                     <div class="card-body">
                         <form [formGroup]="checkoutFormLogin" (ngSubmit)="onSubmitLogin()">

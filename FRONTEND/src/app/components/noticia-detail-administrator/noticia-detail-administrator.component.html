@@ -22,16 +22,10 @@
                 </div>
             </div>
             <div class="row mt-2 ">
-                <div class="col-6">
-                    <div class="ml-3">
-                        <div class="row">
-                            <app-qualifier></app-qualifier>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 text-right">
+                <div class="col-12 text-right">
                     <h5>Por: {{noticia.autor}} </h5> 
                     <h5>Publicado: {{noticia.createdAt | date: 'short'}}</h5>
+                    <h5>Calificacion:  {{noticia.calificacion}} / 5</h5>
                 </div>
             </div>
             <div class="row mt-5">

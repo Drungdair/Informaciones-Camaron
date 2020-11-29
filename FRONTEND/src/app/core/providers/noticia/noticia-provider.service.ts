@@ -38,4 +38,8 @@ export class NoticiaProviderService {
   public topNoticiaVisitas(): Observable<Noticia[]> {
     return this.httpService.get<Noticia[]>('/noticia/topVisitas');
   }
+
+  public putCalificacionNoticia(_id: string, noticia: Partial<Noticia>): Observable<Noticia> {
+    return this.httpService.put<Noticia>('/noticia/calification/' + _id, noticia);
+  }
 }

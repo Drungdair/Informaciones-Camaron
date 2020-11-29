@@ -9,7 +9,7 @@ export interface Noticia {
     categoria: string;          /* Categoria de la noticia*/
     autor: string;              /* Periodista autor (Formato: Nombre Apellido) */
     createdAt: Date;                /* Fecha de publicacion de la noticia*/
-    calificacion: number;       /* Rango de gusto de la noticia, escala de 0-10 */
+    calificacion: number;       /* Rango de gusto de la noticia, escala de 0-5*/
     estado: string;             /* Estado de edicion de la noticia: Edicion(no publicada), Proceso de aprobacion, Publicado*/
     visitas: number;            /* Cantidad de visitas de la noticia */
     privado: number;            /* Privacidad de la noticia: 1=publico 2=privada */

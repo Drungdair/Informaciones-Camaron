@@ -3,5 +3,8 @@
         <ng-container *ngIf="noticia.categoria===categoria && noticia._id!==_id">
             <app-card [noticia]="noticia"></app-card>
         </ng-container>
+        <ng-container *ngIf="noticia.privado==2 && authService.loggedIn()">
+            <app-card [noticia]="noticia"></app-card>
+        </ng-container>
     </div>
 </div>

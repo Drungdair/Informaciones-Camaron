@@ -85,4 +85,15 @@ router.get('/topVisitas', (req, res) => __awaiter(void 0, void 0, void 0, functi
         response_module_1.default.error(req, res, "Error Desconocido");
     }
 }));
+router.put('/calification/:_id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const _id = req.params._id;
+    const body = req.body;
+    try {
+        const result = yield noticia_controller_1.default.putCalificacionNoticia(_id, body);
+        response_module_1.default.success(req, res, result);
+    }
+    catch (error) {
+        response_module_1.default.error(req, res, "Error Desconocido");
+    }
+}));
 exports.default = router;

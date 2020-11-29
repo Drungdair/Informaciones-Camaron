@@ -27,7 +27,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactProviderService } from '../core/providers/contact/contact-provider.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from 'src/environments/environment';
 import { NoticiaListComponent } from '../components/noticia-list/noticia-list.component';
 import { NoticiaDetailComponent } from '../components/noticia-detail/noticia-detail.component';
 import { TopVisitasComponent } from '../components/top-visitas/top-visitas.component';
@@ -42,6 +41,9 @@ import { NoticiaAdministratorScreenComponent } from './noticia-administrator-scr
 import { NoticiaDetailAdministratorComponent } from '../components/noticia-detail-administrator/noticia-detail-administrator.component';
 import { NoticiaPeriodistaScreenComponent } from './noticia-periodista-screen/noticia-periodista-screen.component';
 import { NoticiaDetailPeriodistaComponent } from '../components/noticia-detail-periodista/noticia-detail-periodista.component';
+import { CategoryPrivateComponent } from '../components/category-private/category-private.component';
+import { environment } from 'src/environments/environment';
+import { PrivateNewsScreenComponent } from './private-news-screen/private-news-screen.component';
 
 
 @NgModule({
@@ -81,7 +83,9 @@ import { NoticiaDetailPeriodistaComponent } from '../components/noticia-detail-p
     NoticiaAdministratorScreenComponent,
     NoticiaDetailAdministratorComponent,
     NoticiaPeriodistaScreenComponent,
-    NoticiaDetailPeriodistaComponent
+    NoticiaDetailPeriodistaComponent,
+    CategoryPrivateComponent,
+    PrivateNewsScreenComponent
   ],
   imports: [
     CommonModule,

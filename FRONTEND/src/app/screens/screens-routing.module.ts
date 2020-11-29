@@ -16,6 +16,8 @@ import { PeriodistaScreenComponent } from './periodista-screen/periodista-screen
 import { AlterNoticiaAdministratorScreenComponent } from './alter-noticia-administrator-screen/alter-noticia-administrator-screen.component';
 import { NoticiaAdministratorScreenComponent } from './noticia-administrator-screen/noticia-administrator-screen.component';
 import { NoticiaPeriodistaScreenComponent } from './noticia-periodista-screen/noticia-periodista-screen.component';
+import { PrivateNewsScreenComponent } from './private-news-screen/private-news-screen.component';
+import { AuthGuard } from '../services/auth.guard';
 
 const routes: Routes = [
   {
@@ -43,6 +45,7 @@ const routes: Routes = [
       {path: 'administrator/alterNoticia/:id', component: AlterNoticiaAdministratorScreenComponent},
       {path: 'administrator/noticia/:id', component: NoticiaAdministratorScreenComponent},
       {path: 'periodista/noticia/:id', component: NoticiaPeriodistaScreenComponent},
+      {path: 'PrivateNews', component: PrivateNewsScreenComponent, canActivate: [AuthGuard]}
     ]
   }
 ];
