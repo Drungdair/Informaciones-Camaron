@@ -2,10 +2,10 @@
     <ng-container *ngIf='noticia.imagenURL'>
       <img width="400" height="190" src="{{noticia.imagenURL}}" class="card-img-top">
     </ng-container>
-    <ng-container *ngIf='noticia.videoURL'>
+    <ng-container *ngIf='!noticia.imagenURL && noticia.videoURL'>
       <iframe width="285" height="190" [src]="getVideoIframe(noticia.videoURL)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </ng-container>
-    <ng-container *ngIf='noticia.audioURL'>
+    <ng-container *ngIf='!noticia.imagenURL && !noticia.videoURL && noticia.audioURL'>
       <iframe width="285" height="190" scrolling="no" frameborder="no" allow="autoplay" [src]="getAudioIframe(noticia.audioURL)"></iframe>
     </ng-container>
     <ng-container *ngIf='!noticia.imagenURL && !noticia.videoURL && !noticia.audioURL'>

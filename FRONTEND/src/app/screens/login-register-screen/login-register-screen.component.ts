@@ -30,6 +30,7 @@ export class LoginRegisterScreenComponent implements OnInit {
   
   checkoutFormLogin: FormGroup;
   checkoutFormRegister: FormGroup;
+  public userLogin: User;
 
 
   constructor(private servicioLoginRegister: UserProviderService,
@@ -172,9 +173,10 @@ export class LoginRegisterScreenComponent implements OnInit {
       try {
         this.authService.signInUser(usuario).subscribe(
           res => {
-            console.log(res);
             localStorage.setItem('token', res.token);
-            this.router.navigate(['/inicio']);
+            this.userLogin = res.user;
+            localStorage.setItem('userLogged', this.userLogin._id);
+            location.assign('/inicio');
           },
           err => {
             console.log(err);
@@ -209,7 +211,7 @@ export class LoginRegisterScreenComponent implements OnInit {
             console.log(res);
             localStorage.setItem('token', res.token);
             alert('Usuario registrado con exito!');
-            this.router.navigate(['/inicio']);
+            location.assign('/inicio');
           },
           err => {
             console.log(err);
@@ -248,4 +250,8 @@ export class LoginRegisterScreenComponent implements OnInit {
   get contra() { return this.checkoutFormRegister.get('contra'); }
   get confcontra() { return this.checkoutFormRegister.get('confcontra'); }
   get periodista() { return this.checkoutFormRegister.get('periodista'); }
+
+  public getUserLogin(): User {
+    return this.userLogin;
+  }
 }

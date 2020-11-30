@@ -45,6 +45,7 @@ import { CategoryPrivateComponent } from '../components/category-private/categor
 import { environment } from 'src/environments/environment';
 import { PrivateNewsScreenComponent } from './private-news-screen/private-news-screen.component';
 import { UsuarioListComponent } from '../components/usuario-list/usuario-list.component';
+import { CreateNoticiaComponent } from '../components/create-noticia/create-noticia.component';
 
 
 @NgModule({
@@ -87,7 +88,8 @@ import { UsuarioListComponent } from '../components/usuario-list/usuario-list.co
     NoticiaDetailPeriodistaComponent,
     CategoryPrivateComponent,
     PrivateNewsScreenComponent,
-    UsuarioListComponent
+    UsuarioListComponent,
+    CreateNoticiaComponent,
   ],
   imports: [
     CommonModule,

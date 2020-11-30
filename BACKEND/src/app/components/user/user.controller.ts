@@ -12,7 +12,7 @@ function addUser(usuario: User): Promise<User> {
 }
 
 async function getUsers(): Promise<User[]> {
-    return UserRepository.getUsers();
+    return (await UserRepository.getUsers()).reverse();
 }
 
 async function getUserByEmail(email:string) {

@@ -3,7 +3,6 @@ import NoticiaRepository from "./noticia.repository";
 
 
 function addNoticia(noticia: Noticia): Promise<Noticia> {
-    noticia.autor = "Periodista de Prueba";
     noticia.createdAt = new Date();
     noticia.calificacion = 0;
     noticia.visitas = 0;
@@ -13,7 +12,7 @@ function addNoticia(noticia: Noticia): Promise<Noticia> {
 }
 
 async function getNoticias(): Promise<Noticia[]> {
-    return NoticiaRepository.getNoticias();
+    return (await NoticiaRepository.getNoticias()).reverse();
 }
 
 async function getNoticiaById(_id: string): Promise<Noticia> {

@@ -54,7 +54,7 @@ router.post('/signin', async (req: Request, res: Response) => {
 
 		const token = jwt.sign({_id: user._id}, 'secretkey');
 
-        return res.status(200).json({token});
+        return res.status(200).json({token, user: user});
     } catch (error) {
         responseModule.error(req, res, "Error desconocido");
     }

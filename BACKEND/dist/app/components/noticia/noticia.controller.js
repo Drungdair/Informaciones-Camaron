@@ -14,7 +14,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const noticia_repository_1 = __importDefault(require("./noticia.repository"));
 function addNoticia(noticia) {
-    noticia.autor = "Periodista de Prueba";
     noticia.createdAt = new Date();
     noticia.calificacion = 0;
     noticia.visitas = 0;
@@ -23,7 +22,7 @@ function addNoticia(noticia) {
 }
 function getNoticias() {
     return __awaiter(this, void 0, void 0, function* () {
-        return noticia_repository_1.default.getNoticias();
+        return (yield noticia_repository_1.default.getNoticias()).reverse();
     });
 }
 function getNoticiaById(_id) {

@@ -21,7 +21,7 @@ function addUser(usuario) {
 }
 function getUsers() {
     return __awaiter(this, void 0, void 0, function* () {
-        return user_repository_1.default.getUsers();
+        return (yield user_repository_1.default.getUsers()).reverse();
     });
 }
 function getUserByEmail(email) {

@@ -53,7 +53,7 @@ router.post('/signin', (req, res) => __awaiter(void 0, void 0, void 0, function*
         if (user.contraseña !== body.contraseña)
             return res.status(401).send('Contraseña Incorrecta');
         const token = jwt.sign({ _id: user._id }, 'secretkey');
-        return res.status(200).json({ token });
+        return res.status(200).json({ token, user: user });
     }
     catch (error) {
         response_module_1.default.error(req, res, "Error desconocido");
