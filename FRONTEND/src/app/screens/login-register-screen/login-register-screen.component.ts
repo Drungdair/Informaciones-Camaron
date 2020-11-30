@@ -222,7 +222,8 @@ export class LoginRegisterScreenComponent implements OnInit {
             localStorage.setItem('token', res.token);
             this.usuarioLogeado = res.user;
             localStorage.setItem('userLogged', this.usuarioLogeado._id);
-            location.assign('/inicio');
+            this.router.navigate(['/inicio']);
+            // location.assign('/inicio');
           },
           err => {
             console.log(err);
@@ -254,10 +255,12 @@ export class LoginRegisterScreenComponent implements OnInit {
       try {
         this.authService.signUpUser(usuario).subscribe(
           res => {
-            //localStorage.setItem('token', res.token);
+            console.log(res);
+            localStorage.setItem('token', res.token);
             alert('Usuario registrado con exito!');
-            //this.usuarioLogeado = res.user;
-            //localStorage.setItem('userLogged', this.usuarioLogeado._id);
+            this.usuarioLogeado = res.user;
+            localStorage.setItem('userLogged', this.usuarioLogeado._id);
+            this.router.navigate(['/inicio']);
             //location.assign('/inicio');
           },
           err => {
@@ -298,4 +301,7 @@ export class LoginRegisterScreenComponent implements OnInit {
   get confcontra() { return this.checkoutFormRegister.get('confcontra'); }
   get periodista() { return this.checkoutFormRegister.get('periodista'); }
 
+  public getUserLogin(): User {
+    return this.usuarioLogeado;
+  }
 }

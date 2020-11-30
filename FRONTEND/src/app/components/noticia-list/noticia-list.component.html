@@ -6,7 +6,7 @@
         <ng-container *ngIf = "noticia.privado==2 && authService.loggedIn()">
             <app-card [noticia] = "noticia"></app-card>
         </ng-container>
-        <ng-container *ngIf = "limit != null && i < limit && !authService.loggedIn()">
+        <ng-container *ngIf = "limit != null && i < limit">
             <app-card [noticia]="noticia"></app-card>
         </ng-container>
     </div>
