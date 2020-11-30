@@ -46,6 +46,7 @@ import { environment } from 'src/environments/environment';
 import { PrivateNewsScreenComponent } from './private-news-screen/private-news-screen.component';
 import { UsuarioListComponent } from '../components/usuario-list/usuario-list.component';
 import { CreateNoticiaComponent } from '../components/create-noticia/create-noticia.component';
+import { MostCommentedScreenComponent } from './most-commented-screen/most-commented-screen.component';
 
 
 @NgModule({
@@ -90,6 +91,7 @@ import { CreateNoticiaComponent } from '../components/create-noticia/create-noti
     PrivateNewsScreenComponent,
     UsuarioListComponent,
     CreateNoticiaComponent,
+    MostCommentedScreenComponent,
   ],
   imports: [
     CommonModule,

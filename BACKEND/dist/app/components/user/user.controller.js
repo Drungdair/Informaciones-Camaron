@@ -44,4 +44,9 @@ function putUser(_id, user) {
         return user_repository_1.default.putUser(_id, user);
     });
 }
-exports.default = { addUser, getUsers, getUserById, getUserByEmail, deleteUser, putUser };
+function getUserByNick(nick) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return user_repository_1.default.getUserByNick(nick);
+    });
+}
+exports.default = { addUser, getUsers, getUserById, getUserByEmail, deleteUser, putUser, getUserByNick };

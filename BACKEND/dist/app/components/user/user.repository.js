@@ -44,4 +44,12 @@ function putUser(_id, user) {
         return user_schema_1.default.findByIdAndUpdate(_id, user);
     });
 }
-exports.default = { addUser, getUsers, getUserById, getUserByEmail, deleteUser, putUser };
+function getUserByNick(nick) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return user_schema_1.default.findOne({ nick: nick }, function (err, obj) {
+            if (err)
+                console.log(err);
+        });
+    });
+}
+exports.default = { addUser, getUsers, getUserById, getUserByEmail, deleteUser, putUser, getUserByNick };

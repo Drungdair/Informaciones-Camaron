@@ -31,4 +31,8 @@ async function putUser(_id: string, user: User): Promise<User> {
     return UserRepository.putUser(_id, user);
 }
 
-export default { addUser, getUsers, getUserById, getUserByEmail, deleteUser, putUser };
+async function getUserByNick(nick:string) {
+    return UserRepository.getUserByNick(nick);
+}
+
+export default { addUser, getUsers, getUserById, getUserByEmail, deleteUser, putUser, getUserByNick };
