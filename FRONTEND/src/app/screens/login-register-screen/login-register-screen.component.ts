@@ -116,11 +116,12 @@ export class LoginRegisterScreenComponent implements OnInit {
     return new Promise(async () => {
       await this.authInstance.signIn().then(
         user2 => {
+          localStorage.removeItem('userLogged');
           localStorage.setItem('USERID', user2.getBasicProfile().getEmail());
           this.user1 = user2;
           console.log(this.USERID, this.user1.getBasicProfile().getName());
-          localStorage.removeItem('userLogged');
           this.loginGoogle();
+          
           this.router.navigate(['/inicio']);
           //location.assign('/inicio');
         },
@@ -142,6 +143,7 @@ export class LoginRegisterScreenComponent implements OnInit {
         res => {
           console.log(res);
 
+          localStorage.removeItem('userLogged');
           localStorage.setItem('token', res.token);
           this.usuarioLogeado = res.user;
           localStorage.setItem('userLogged', this.usuarioLogeado._id);
@@ -229,7 +231,7 @@ export class LoginRegisterScreenComponent implements OnInit {
             localStorage.setItem('token', res.token);
             this.usuarioLogeado = res.user;
             localStorage.setItem('userLogged', this.usuarioLogeado._id);
-             location.assign('/inicio');
+            location.assign('/inicio');
           },
           err => {
             console.log(err);
